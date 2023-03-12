@@ -1,0 +1,4 @@
+TRUNCATE book;
+DELETE FROM book;
+TRUNCATE person;
+DELETE FROM person;

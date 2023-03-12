@@ -1,0 +1,16 @@
+body {
+    background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(../img/homeImg.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+p{
+    margin: 30px 100px;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+}

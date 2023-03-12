@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Книга</title>
+</head>
+<body>
+
+<span th:text="${book.getNameOfBook()}">value</span>
+<span>, </span>
+<span th:text="${book.getAuthor()}">Value</span>
+<span>, </span>
+<span th:text="${book.getDateOfWriting()}"> Value </span>
+<br/>
+<br/>
+<div th:if="${owner}">
+    <span>Эта книга сейчас у
+        <span th:text="${owner.getName()}">Value</span>
+    </span>
+  <br/>
+</div>
+
+
+<div th:if="${User}">
+  <span>Эта книга свободна.</span>
+<!--  <form th:method="PATCH" th:action="@{/book/{id}/choosePersonForUser(id = ${book.getId_book()})}">-->
+<!--    <input type="submit" value="Взять книгу"/>-->
+<!--  </form>-->
+</div>
+
+
+</body>
+</html>

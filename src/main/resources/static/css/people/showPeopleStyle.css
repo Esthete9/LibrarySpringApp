@@ -1,0 +1,68 @@
+@media (min-width: 992px) {
+    .rounded-lg-3 { border-radius: .3rem; }
+}
+
+body {
+    background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(../img/show.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.display-5 {
+    color: #FFFFFF;
+}
+
+.lead {
+    color: #FFFFFF;
+    font-size:2rem;
+}
+
+.mySpan {
+    font-size:2rem;
+}
+
+.buttons {
+    display:inline-block;
+}
+
+.myP {
+    font-size:1.55rem;
+    color: #DDE4EB;
+}
+
+.login {
+    width: 100px;
+    background: #0D0B08;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-size: 18px;
+}
+
+.emptyBookSpan {
+    font-size:2rem;
+    color:#CDFFE7;
+}
+
+.loginButton {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    background: transparent;
+    border-left: 1px solid #fff;
+    border-radius: 0 3px 3px 0;
+    font-size: 18px;
+}
+
+button:hover {
+    background: #fff;
+    color:#0D0B08;
+}
+
+.mySelect {
+    height: 35px;
+    margin-bottom: 5px;
+}

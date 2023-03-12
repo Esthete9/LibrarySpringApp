@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Библиотека</title>
+    <link rel="stylesheet" href="/css/book/homePage.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="col-first-href">
+                <a class="sortLink" th:href="@{/book?page={currentPage}&books_per_page=12&sort_by_year=true(currentPage=${currentPage})}">
+                    Сначала старые
+                </a>
+                <br/>
+                <a class="sortLink" th:href="@{/book?page={currentPage}&books_per_page=12&sort_by_year_Desc=true(currentPage=${currentPage})}">
+                    Сначала новые
+                </a>
+            </div>
+            <div class="col-first-add">
+                <a class="new-link" href="/book/new">Добавить книгу</a>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="buttons">
+                <form class="search" th:method="POST" th:action="@{/book/search}">
+                    <input type="search" placeholder="Найти книгу..." name="startWith"/>
+                    <button class="searchButton" type="submit">Найти</button>
+                </form>
+                <div th:if="${personName}" class="nameLink">
+                    <a th:href="@{/people/{personId}(personId=${personId})}" class="namePerson" th:text="${personName}">Name</a>
+                </div>
+            </div>
+
+            <table class="books-table">
+                <tr>
+                    <td id="first-row" class="table-col" th:each="book : ${firstRow}">
+                        <a th:href="@{/book/{id}(id=${book.getId_book()})}">
+                            <img th:src="${book.getImgUrl()}" width="120" height="170"/>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-col" th:each="book : ${secondRow}">
+                        <a th:href="@{/book/{id}(id=${book.getId_book()})}">
+                            <img th:src="${book.getImgUrl()}" width="120" height="170"/>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-col" th:each="book : ${thirdRow}">
+                        <a th:href="@{/book/{id}(id=${book.getId_book()})}">
+                            <img th:src="${book.getImgUrl()}" width="120" height="170"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            <nav class="d-flex justify-content-center">
+                <ul class="pagination">
+                    <li class="page-item">
+<!--                        <a class="page-link" href="#" aria-label="Previous">-->
+<!--                            <span aria-hidden="true">&laquo;</span>-->
+<!--                        </a>-->
+                    </li>
+                    <li class="page-item" th:each="p : ${pages}">
+                        <a class="page-link" th:href="@{/book?page={p}&books_per_page=12&sort_by_year={sort_by_yea}&sort_by_year_Desc={sort_by_year_Des} (p=${p}, sort_by_yea=${sort_by_yea}, sort_by_year_Des=${sort_by_year_Des})}" th:text="${p + 1}">text</a>
+                    </li>
+                    <li class="page-item">
+<!--                        <a class="page-link" href="#" aria-label="Next">-->
+<!--                            <span aria-hidden="true">&raquo;</span>-->
+<!--                        </a>-->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col">
+            <div class="buttons">
+                    <form th:unless="${authenticated}" class="login" th:method="GET" th:action="@{/auth/login}">
+                        <button class="loginButton" type="submit">Войти</button>
+                    </form>
+                    <form th:if="${authenticated}" class="login" th:method="POST" th:action="@{/logout}">
+                    <button class="loginButton" type="submit">Выйти</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+</body>
+</html>

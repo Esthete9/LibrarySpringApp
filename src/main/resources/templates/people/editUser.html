@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление человека</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId_person()})}" th:object="${person}">
+    <label for="name">Введите имя</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color: maroon" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <br/>
+    <label for="yearOfBirth">Введите год рождения</label>
+    <input type="text" th:field="*{yearOfBirth}" id="yearOfBirth"/>
+    <div style="color: maroon" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">yearOfBirth error</div>
+    <br/>
+    <input type="hidden" th:field="*{username}" id="username"/>
+    <div style="color: maroon" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">email error</div>
+    <br/>
+    <input type="submit" value="Update!"/>
+
+    <input type="hidden" th:field="*{role}" id="role"/>
+    <div style="color: maroon" th:if="${#fields.hasErrors('role')}" th:errors="*{role}">role error</div>
+    <input type="hidden" th:field="*{password}" id="password"/>
+    <div style="color: maroon" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</div>
+    <input type="hidden" th:field="*{activationCode}" id="activationCode"/>
+    <div style="color: maroon" th:if="${#fields.hasErrors('activationCode')}" th:errors="*{activationCode}">activationCode error</div>
+</form>
+</body>
+</html>

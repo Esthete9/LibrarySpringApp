@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Новый человек</title>
+  <link rel="stylesheet" href="/css/people/newPeopleStyle.css" type="text/css"/>
+</head>
+<body>
+<form th:method="POST" th:action="@{/people}" th:object="${person}">
+  <div class="input-form">
+    <input type="text" th:field="*{name}" id="name" placeholder="Введите ФИО"/>
+  </div>
+  <div style="color: maroon" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+  <div class="input-form">
+    <input type="text" th:field="*{yearOfBirth}" id="yearOfBirth" placeholder="Введите год рождения"/>
+  </div>
+  <div style="color: maroon" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">YearOfBirth error</div>
+  <div class="input-form">
+    <input type="text" th:field="*{username}" id="username" placeholder="Введите email"/>
+  </div>
+  <div style="color: maroon" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Email error</div>
+  <div class="input-form">
+    <input type="text" th:field="*{password}" id="password" placeholder="Введите пароль"/>
+  </div>
+  <div style="color: maroon" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Email error</div>
+  <div class="input-form">
+    <input type="submit" value="Создать!"/>
+  </div>
+</form>
+</body>
+</html>
