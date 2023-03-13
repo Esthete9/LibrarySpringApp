@@ -75,4 +75,6 @@
 `mvn spring-boot:run`
 
 * 4 - Открыть браузер и перейти на `http://localhost:8080/book`
+
+    - Чтобы авторизоваться под администратором: email - zeavs9800@gmail.com; пароль - admin.
 ---
